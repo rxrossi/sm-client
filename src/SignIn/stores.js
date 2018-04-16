@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Login from './index';
 
 storiesOf('test', module)
-  .add('with text', () =>
-   <p>Hello Button</p>)
+  .add('with text', () => <Login />)
