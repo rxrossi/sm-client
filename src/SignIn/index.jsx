@@ -1,22 +1,19 @@
 import React from 'react';
-import { Container, Row, Col, Input, Button } from 'react-materialize';
+import Presentational from './Presentational';
+import FieldsControllerHOC from '../FieldsControllerHOC';
 
-class Login extends React.Component {
+export default class Signin extends React.Component {
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onSubmit(fields) {
+    console.log(fields)
+  }
+
   render() {
-    return (
-    <Container>
-        <Row className="center">
-          <Col offset="s3" s={6}>
-            <div style={{maxWidth: 300, display: 'inline-block'}}>
-              <Input s={12} label="Email" type="email" />
-              <Input s={12} label="Password" type="password" />
-              <Button>Login</Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    )
+    const Signin = FieldsControllerHOC(Presentational);
+    return <Signin onSubmit={this.onSubmit} />
   }
 }
-
-export default Login
