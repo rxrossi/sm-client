@@ -1,6 +1,6 @@
 import React from 'react';
 import Presentational from './Presentational';
-import FieldsControllerHOC from '../FieldsControllerHOC';
+import FieldsControllerHOC from '../../FieldsControllerHOC';
 
 export default class Signin extends React.Component {
   constructor(props) {
