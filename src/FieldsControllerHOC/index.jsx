@@ -45,7 +45,7 @@ export default function FieldsControllerHOC(Component) {
 
     render() {
       const { fields } = this.state;
-      return <Component fields={fields} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+      return ( <Component fields={fields} handleChange={this.handleChange} handleSubmit={this.handleSubmit} /> )
     }
   }
 }
