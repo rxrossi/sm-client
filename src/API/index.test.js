@@ -7,22 +7,22 @@ describe("API test", () => {
       password: "pw"
     };
 
-    it("returns invalid credentials when necessary", () => {
-      const actual = signin({ email: "invalid", password: "invalid" });
+    it("returns invalid credentials when necessary", async () => {
+      const actual = await signin({ email: "invalid", password: "invalid" });
       const expected = { error: "Invalid credentials" };
       expect(actual).toEqual(expected);
     });
 
-    it("return token if credentials are correct", () => {
-      const actual = signin(validUser);
+    it("return token if credentials are correct", async () => {
+      const actual = await signin(validUser);
       expect(actual).toHaveProperty("token");
     });
   });
 
   describe("signup function", () => {
     describe("returns the correct object for empty fields", () => {
-      test("all fields", () => {
-        const actual = signup();
+      test("all fields", async () => {
+        const actual = await signup();
         const expected = {
           email: "Required",
           password: "Required",
@@ -30,8 +30,8 @@ describe("API test", () => {
         };
         expect(actual).toEqual(expected);
       });
-      test("missing email and confirmPassword fields", () => {
-        const actual = signup({
+      test("missing email and confirmPassword fields", async () => {
+        const actual = await signup({
           password: "mail"
         });
         const expected = {
@@ -41,8 +41,8 @@ describe("API test", () => {
         expect(actual).toEqual(expected);
       });
     });
-    it("returns an error if passwords does not match", () => {
-      const actual = signup({
+    it("returns an error if passwords does not match", async () => {
+      const actual = await signup({
         email: "mail",
         password: "pw",
         confirmPassword: "pw2"
@@ -52,8 +52,8 @@ describe("API test", () => {
       };
       expect(actual).toEqual(expected);
     });
-    it("returns a token if everything is ok", () => {
-      const actual = signup({
+    it("returns a token if everything is ok", async () => {
+      const actual = await signup({
         email: "user@mail.com",
         password: "pw",
         confirmPassword: "pw"
